@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "code": "F001",
+    "name": "Furadeira Elétrica Bosch",
+    "category": "eletrica",
+    "status": "disponivel",
+    "location": "Almoxarifado A",
+    "purchaseDate": "2023-01-15",
+    "lastMaintenance": "2024-01-10",
+    "description": "Furadeira elétrica profissional 1100W"
+  },
+  {
+    "id": 2,
+    "code": "F002",
+    "name": "Serra Circular Makita",
+    "category": "eletrica",
+    "status": "em-uso",
+    "location": "Obra Norte",
+    "purchaseDate": "2023-03-20",
+    "lastMaintenance": "2024-02-15",
+    "description": "Serra circular 7 1/4\" 1200W"
+  },
+  {
+    "id": 3,
+    "code": "F003",
+    "name": "Chave de Fenda 10mm",
+    "category": "manual",
+    "status": "disponivel",
+    "location": "Almoxarifado B",
+    "purchaseDate": "2023-06-10",
+    "lastMaintenance": "2024-01-20",
+    "description": "Chave de fenda profissional"
+  },
+  {
+    "id": 4,
+    "code": "F004",
+    "name": "Compressor de Ar",
+    "category": "pneumatica",
+    "status": "manutencao",
+    "location": "Oficina Central",
+    "purchaseDate": "2022-11-05",
+    "lastMaintenance": "2024-03-01",
+    "description": "Compressor de ar 100L 2HP"
+  },
+  {
+    "id": 5,
+    "code": "F005",
+    "name": "Betoneira 400L",
+    "category": "hidraulica",
+    "status": "disponivel",
+    "location": "Pátio de Máquinas",
+    "purchaseDate": "2023-08-12",
+    "lastMaintenance": "2024-02-28",
+    "description": "Betoneira elétrica 400 litros"
+  },
+  {
+    "id": 6,
+    "code": "F006",
+    "name": "Esmerilhadeira Angular",
+    "category": "eletrica",
+    "status": "disponivel",
+    "location": "Almoxarifado A",
+    "purchaseDate": "2023-09-05",
+    "lastMaintenance": "2024-01-15",
+    "description": "Esmerilhadeira angular 4 1/2\" 850W"
+  },
+  {
+    "id": 7,
+    "code": "F007",
+    "name": "Martelo Demolidor",
+    "category": "eletrica",
+    "status": "em-uso",
+    "location": "Obra Sul",
+    "purchaseDate": "2023-04-18",
+    "lastMaintenance": "2024-02-10",
+    "description": "Martelo demolidor 1500W"
+  },
+  {
+    "id": 8,
+    "code": "F008",
+    "name": "Parafusadeira Impacto",
+    "category": "eletrica",
+    "status": "disponivel",
+    "location": "Almoxarifado B",
+    "purchaseDate": "2023-07-22",
+    "lastMaintenance": "2024-01-25",
+    "description": "Parafusadeira de impacto 18V"
+  },
+  {
+    "id": 9,
+    "code": "F009",
+    "name": "Cortador de Piso",
+    "category": "manual",
+    "status": "disponivel",
+    "location": "Sala de Ferramentas",
+    "purchaseDate": "2023-05-30",
+    "lastMaintenance": "2024-02-05",
+    "description": "Cortador de piso manual"
+  },
+  {
+    "id": 10,
+    "code": "F010",
+    "name": "Vibrador de Concreto",
+    "category": "hidraulica",
+    "status": "manutencao",
+    "location": "Oficina Central",
+    "purchaseDate": "2022-12-08",
+    "lastMaintenance": "2024-03-05",
+    "description": "Vibrador de concreto elétrico"
+  }
+]

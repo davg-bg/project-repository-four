@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCB - Sistema de Gerenciamento da Igreja</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="church-animation">
+                <i class="fas fa-church"></i>
+            </div>
+            <h2>CCB - Igreja</h2>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>CCB Igreja</h1>
+                        <span>Sistema de Gerenciamento</span>
+                    </div>
+                </div>
+                <nav class="nav">
+                    <a href="#home" class="nav-link active" data-section="home">
+                        <i class="fas fa-home"></i>
+                        <span>Início</span>
+                    </a>
+                    <a href="#ferramentas" class="nav-link" data-section="ferramentas">
+                        <i class="fas fa-tools"></i>
+                        <span>Ferramentas</span>
+                    </a>
+                    <a href="#eventos" class="nav-link" data-section="eventos">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Eventos</span>
+                    </a>
+                    <a href="#membros" class="nav-link" data-section="membros">
+                        <i class="fas fa-users"></i>
+                        <span>Membros</span>
+                    </a>
+                    <a href="#solicitacoes" class="nav-link" data-section="solicitacoes">
+                        <i class="fas fa-tools"></i>
+                        <span>Solicitações</span>
+                    </a>
+                    <a href="#relatorios" class="nav-link" data-section="relatorios">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Relatórios</span>
+                    </a>
+                    <a href="#configuracoes" class="nav-link" data-section="configuracoes">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </nav>
+                <div class="user-menu">
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">Administrador</span>
+                        <span class="user-role">Pastor</span>
+                    </div>
+                    <div class="user-dropdown">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Dashboard Section -->
+            <section id="home" class="section active">
+                <div class="dashboard">
+                    <div class="dashboard-header">
+                        <h2 class="animate__animated animate__fadeInUp">Bem-vindo à CCB</h2>
+                        <p class="dashboard-subtitle animate__animated animate__fadeInUp animate__delay-1s">
+                            "Porque para Deus nada é impossível" - Lucas 1:37
+                        </p>
+                    </div>
+
+                    <div class="stats-grid animate__animated animate__fadeInUp animate__delay-2s">
+                        <div class="stat-card clickable" onclick="filterByStatus()">
+                            <div class="stat-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 id="total-ferramentas">0</h3>
+                                <p>Total de Ferramentas</p>
+                                <div class="stat-trend">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>+12% este mês</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card clickable" onclick="filterByStatus('disponivel')">
+                            <div class="stat-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 id="ferramentas-disponiveis">0</h3>
+                                <p>Disponíveis</p>
+                                <div class="stat-trend">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>+8% esta semana</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card clickable" onclick="filterByStatus('em-uso')">
+                            <div class="stat-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 id="ferramentas-em-uso">0</h3>
+                                <p>Em Uso</p>
+                                <div class="stat-trend">
+                                    <i class="fas fa-arrow-down"></i>
+                                    <span>-3% hoje</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card clickable" onclick="filterByStatus('manutencao')">
+                            <div class="stat-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 id="ferramentas-manutencao">0</h3>
+                                <p>Em Manutenção</p>
+                                <div class="stat-trend">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>+2 esta semana</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-content">
+                        <div class="quick-actions animate__animated animate__fadeInUp animate__delay-3s">
+                            <h3>Ações Rápidas</h3>
+                            <div class="actions-grid">
+                                <button class="action-btn" onclick="showAddToolModal()">
+                                    <div class="action-icon">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                    <span>Nova Ferramenta</span>
+                                </button>
+                                <button class="action-btn" onclick="showEventModal()">
+                                    <div class="action-icon">
+                                        <i class="fas fa-calendar-plus"></i>
+                                    </div>
+                                    <span>Novo Evento</span>
+                                </button>
+                                <button class="action-btn" onclick="showMemberModal()">
+                                    <div class="action-icon">
+                                        <i class="fas fa-user-plus"></i>
+                                    </div>
+                                    <span>Novo Membro</span>
+                                </button>
+                                <button class="action-btn" onclick="showSearchModal()">
+                                    <div class="action-icon">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                    <span>Buscar</span>
+                                </button>
+                                <button class="action-btn" onclick="showToolRequestModal()">
+                                    <div class="action-icon">
+                                        <i class="fas fa-tools"></i>
+                                    </div>
+                                    <span>Solicitar Ferramenta</span>
+                                </button>
+                                <button class="action-btn" onclick="exportData()">
+                                    <div class="action-icon">
+                                        <i class="fas fa-download"></i>
+                                    </div>
+                                    <span>Exportar Dados</span>
+                                </button>
+                                <button class="action-btn" onclick="showMaintenanceModal()">
+                                    <div class="action-icon">
+                                        <i class="fas fa-tools"></i>
+                                    </div>
+                                    <span>Manutenção</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-widgets">
+                            <div class="widget upcoming-events animate__animated animate__fadeInUp animate__delay-4s">
+                                <h3>Próximos Eventos</h3>
+                                <div class="events-list" id="upcoming-events-list">
+                                    <!-- Eventos serão carregados aqui -->
+                                </div>
+                            </div>
+
+                            <div class="widget recent-activities animate__animated animate__fadeInUp animate__delay-5s">
+                                <h3>Atividades Recentes</h3>
+                                <div class="activities-list" id="recent-activities-list">
+                                    <!-- Atividades serão carregadas aqui -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tools Management Section -->
+            <section id="ferramentas" class="section">
+                <div class="tools-management">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <h2>Gerenciamento de Ferramentas</h2>
+                            <p>Controle e organização dos equipamentos da igreja</p>
+                        </div>
+                        <div class="section-actions">
+                            <button class="btn-primary" onclick="showAddToolModal()">
+                                <i class="fas fa-plus"></i>
+                                Adicionar
+                            </button>
+                            <button class="btn-secondary" onclick="triggerImportXlsx()">
+                                <i class="fas fa-file-import"></i>
+                                Importar XLSX
+                            </button>
+                            <button class="btn-secondary" onclick="downloadXlsxTemplate()">
+                                <i class="fas fa-file-excel"></i>
+                                Baixar Modelo
+                            </button>
+                            <input id="xlsx-file-input" type="file" accept=".xlsx,.xls" style="display:none" />
+                        </div>
+                    </div>
+
+                    <div class="filters">
+                        <div class="filter-group">
+                            <label for="status-filter">Status:</label>
+                            <select id="status-filter" onchange="filterTools()">
+                                <option value="">Todos</option>
+                                <option value="disponivel">Disponível</option>
+                                <option value="em-uso">Em Uso</option>
+                                <option value="manutencao">Em Manutenção</option>
+                                <option value="inativo">Inativo</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="category-filter">Categoria:</label>
+                            <select id="category-filter" onchange="filterTools()">
+                                <option value="">Todas</option>
+                                <option value="eletrica">Elétrica</option>
+                                <option value="manual">Manual</option>
+                                <option value="hidraulica">Hidráulica</option>
+                                <option value="pneumatica">Pneumática</option>
+                                <option value="audio">Áudio</option>
+                                <option value="video">Vídeo</option>
+                                <option value="iluminacao">Iluminação</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <input type="text" id="search-input" placeholder="Buscar ferramenta..." onkeyup="filterTools()">
+                        </div>
+                    </div>
+
+                    <div class="tools-table-container">
+                        <table class="tools-table">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Nome</th>
+                                    <th>Categoria</th>
+                                    <th>Status</th>
+                                    <th>Localização</th>
+                                    <th>Última Manutenção</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tools-table-body">
+                                <!-- Tools will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Events Section -->
+            <section id="eventos" class="section">
+                <div class="events-management">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <h2>Gerenciamento de Eventos</h2>
+                            <p>Organize e acompanhe os eventos da igreja</p>
+                        </div>
+                        <div class="section-actions">
+                            <button class="btn-primary" onclick="showEventModal()">
+                                <i class="fas fa-plus"></i>
+                                Novo Evento
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="events-grid" id="events-grid">
+                        <!-- Eventos serão carregados aqui -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Members Section -->
+            <section id="membros" class="section">
+                <div class="members-management">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <h2>Gerenciamento de Membros</h2>
+                            <p>Cadastro e acompanhamento dos membros da igreja</p>
+                        </div>
+                        <div class="section-actions">
+                            <button class="btn-primary" onclick="showMemberModal()">
+                                <i class="fas fa-plus"></i>
+                                Novo Membro
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="members-grid" id="members-grid">
+                        <!-- Membros serão carregados aqui -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool Requests Section -->
+            <section id="solicitacoes" class="section">
+                <div class="tool-requests-management">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <h2>Solicitações de Ferramentas</h2>
+                            <p>Gerenciamento e acompanhamento das solicitações de equipamentos</p>
+                        </div>
+                        <div class="section-actions">
+                            <button class="btn-primary" onclick="showToolRequestModal()">
+                                <i class="fas fa-plus"></i>
+                                Nova Solicitação
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="filters">
+                        <div class="filter-group">
+                            <label for="request-status-filter">Status:</label>
+                            <select id="request-status-filter" onchange="filterToolRequests()">
+                                <option value="">Todos</option>
+                                <option value="pendente">Pendente</option>
+                                <option value="aprovada">Aprovada</option>
+                                <option value="rejeitada">Rejeitada</option>
+                                <option value="concluida">Concluída</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="request-priority-filter">Prioridade:</label>
+                            <select id="request-priority-filter" onchange="filterToolRequests()">
+                                <option value="">Todas</option>
+                                <option value="baixa">Baixa</option>
+                                <option value="media">Média</option>
+                                <option value="alta">Alta</option>
+                                <option value="urgente">Urgente</option>
+                            </select>3
+                        </div>
+                        <div class="filter-group">
+                            <input type="text" id="request-search-input" placeholder="Buscar solicitação..." onkeyup="filterToolRequests()">
+                        </div>
+                    </div>
+
+                    <div class="tool-requests-table-container">
+                        <table class="tool-requests-table">
+                            <thead>
+                                <tr>
+                                    <th>Solicitante</th>
+                                    <th>Ferramenta</th>
+                                    <th>Ministério</th>
+                                    <th>Prioridade</th>
+                                    <th>Data Necessária</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tool-requests-table-body">
+                                <!-- Solicitações serão carregadas aqui -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reports Section -->
+            <section id="relatorios" class="section">
+                <div class="reports">
+                    <h2>Relatórios</h2>
+                    <div class="reports-grid">
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Relatório de Uso</h3>
+                            <p>Visualize o histórico de uso das ferramentas</p>
+                            <button class="btn-secondary" onclick="generateUsageReport()">
+                                Gerar Relatório
+                            </button>
+                        </div>
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3>Relatório de Manutenção</h3>
+                            <p>Controle de manutenções preventivas e corretivas</p>
+                            <button class="btn-secondary" onclick="generateMaintenanceReport()">
+                                Gerar Relatório
+                            </button>
+                        </div>
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-clipboard-list"></i>
+                            </div>
+                            <h3>Relatório de Inventário</h3>
+                            <p>Inventário completo de todas as ferramentas</p>
+                            <button class="btn-secondary" onclick="generateInventoryReport()">
+                                Gerar Relatório
+                            </button>
+                        </div>
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Relatório de Membros</h3>
+                            <p>Estatísticas e informações dos membros</p>
+                            <button class="btn-secondary" onclick="generateMembersReport()">
+                                Gerar Relatório
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="configuracoes" class="section">
+                <div class="settings">
+                    <h2>Configurações</h2>
+                    <div class="settings-grid">
+                        <div class="setting-card">
+                            <h3>Configurações Gerais</h3>
+                            <form class="settings-form">
+                                <div class="form-group">
+                                    <label for="company-name">Nome da Igreja:</label>
+                                    <input type="text" id="company-name" value="CCB - Congregação Cristã">
+                                </div>
+                                <div class="form-group">
+                                    <label for="church-address">Endereço:</label>
+                                    <input type="text" id="church-address" placeholder="Endereço da igreja">
+                                </div>
+                                <div class="form-group">
+                                    <label for="church-phone">Telefone:</label>
+                                    <input type="tel" id="church-phone" placeholder="(11) 99999-9999">
+                                </div>
+                                <div class="form-group">
+                                    <label for="backup-frequency">Frequência de Backup:</label>
+                                    <select id="backup-frequency">
+                                        <option value="daily">Diário</option>
+                                        <option value="weekly">Semanal</option>
+                                        <option value="monthly">Mensal</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Gerenciamento de Dados:</label>
+                                    <div class="button-group" style="display: flex; gap: 10px; margin-top: 10px;">
+                                        <button type="button" onclick="exportData()" class="btn btn-secondary">
+                                            <i class="fas fa-download"></i> Backup dos Dados
+                                        </button>
+                                        <button type="button" onclick="importData()" class="btn btn-secondary">
+                                            <i class="fas fa-upload"></i> Restaurar Backup
+                                        </button>
+                                        <button type="button" onclick="clearAllData()" class="btn btn-danger">
+                                            <i class="fas fa-trash"></i> Limpar Todos os Dados
+                                        </button>
+                                        <button type="button" onclick="checkFirebaseStatus()" class="btn btn-info">
+                                            <i class="fas fa-cloud"></i> Status Firebase
+                                        </button>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn-primary">Salvar Configurações</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <!-- Add Tool Modal -->
+    <div id="add-tool-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Adicionar Nova Ferramenta</h3>
+                <span class="close" onclick="closeModal('add-tool-modal')">&times;</span>
+            </div>
+            <form id="add-tool-form" class="modal-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="tool-code">Código:</label>
+                        <input type="text" id="tool-code" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tool-name">Nome:</label>
+                        <input type="text" id="tool-name" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="tool-category">Categoria:</label>
+                        <select id="tool-category" required>
+                            <option value="">Selecione...</option>
+                            <option value="eletrica">Elétrica</option>
+                            <option value="manual">Manual</option>
+                            <option value="hidraulica">Hidráulica</option>
+                            <option value="pneumatica">Pneumática</option>
+                            <option value="audio">Áudio</option>
+                            <option value="video">Vídeo</option>
+                            <option value="iluminacao">Iluminação</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tool-status">Status:</label>
+                        <select id="tool-status" required>
+                            <option value="disponivel">Disponível</option>
+                            <option value="em-uso">Em Uso</option>
+                            <option value="manutencao">Em Manutenção</option>
+                            <option value="inativo">Inativo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="tool-location">Localização:</label>
+                        <input type="text" id="tool-location" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tool-purchase-date">Data de Aquisição:</label>
+                        <input type="date" id="tool-purchase-date" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="tool-description">Descrição:</label>
+                    <textarea id="tool-description" rows="3"></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('add-tool-modal')">Cancelar</button>
+                    <button type="submit" class="btn-primary">Adicionar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Event Modal -->
+    <div id="event-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Novo Evento</h3>
+                <span class="close" onclick="closeModal('event-modal')">&times;</span>
+            </div>
+            <form id="event-form" class="modal-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="event-title">Título do Evento:</label>
+                        <input type="text" id="event-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-type">Tipo de Evento:</label>
+                        <select id="event-type" required>
+                            <option value="">Selecione...</option>
+                            <option value="culto">Culto</option>
+                            <option value="estudo">Estudo Bíblico</option>
+                            <option value="oracao">Círculo de Oração</option>
+                            <option value="jovens">Encontro de Jovens</option>
+                            <option value="criancas">Escola Bíblica</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="event-date">Data:</label>
+                        <input type="date" id="event-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-time">Horário:</label>
+                        <input type="time" id="event-time" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="event-description">Descrição:</label>
+                    <textarea id="event-description" rows="3"></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('event-modal')">Cancelar</button>
+                    <button type="submit" class="btn-primary">Criar Evento</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Member Modal -->
+    <div id="member-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Novo Membro</h3>
+                <span class="close" onclick="closeModal('member-modal')">&times;</span>
+            </div>
+            <form id="member-form" class="modal-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="member-name">Nome Completo:</label>
+                        <input type="text" id="member-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="member-email">E-mail:</label>
+                        <input type="email" id="member-email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="member-phone">Telefone:</label>
+                        <input type="tel" id="member-phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="member-birthdate">Data de Nascimento:</label>
+                        <input type="date" id="member-birthdate">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="member-ministry">Ministério:</label>
+                        <select id="member-ministry">
+                            <option value="">Selecione...</option>
+                            <option value="musica">Música</option>
+                            <option value="jovens">Jovens</option>
+                            <option value="criancas">Crianças</option>
+                            <option value="oracao">Oração</option>
+                            <option value="evangelismo">Evangelismo</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="member-status">Status:</label>
+                        <select id="member-status" required>
+                            <option value="ativo">Ativo</option>
+                            <option value="inativo">Inativo</option>
+                            <option value="visitante">Visitante</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('member-modal')">Cancelar</button>
+                    <button type="submit" class="btn-primary">Adicionar Membro</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Tool Modal -->
+    <div id="edit-tool-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Editar Ferramenta</h3>
+                <span class="close" onclick="closeModal('edit-tool-modal')">&times;</span>
+            </div>
+            <form id="edit-tool-form" class="modal-form">
+                <input type="hidden" id="edit-tool-id">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="edit-tool-code">Código:</label>
+                        <input type="text" id="edit-tool-code" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-tool-name">Nome:</label>
+                        <input type="text" id="edit-tool-name" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="edit-tool-category">Categoria:</label>
+                        <select id="edit-tool-category" required>
+                            <option value="">Selecione...</option>
+                            <option value="eletrica">Elétrica</option>
+                            <option value="manual">Manual</option>
+                            <option value="hidraulica">Hidráulica</option>
+                            <option value="pneumatica">Pneumática</option>
+                            <option value="audio">Áudio</option>
+                            <option value="video">Vídeo</option>
+                            <option value="iluminacao">Iluminação</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-tool-status">Status:</label>
+                        <select id="edit-tool-status" required>
+                            <option value="disponivel">Disponível</option>
+                            <option value="em-uso">Em Uso</option>
+                            <option value="manutencao">Em Manutenção</option>
+                            <option value="inativo">Inativo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="edit-tool-location">Localização:</label>
+                        <input type="text" id="edit-tool-location" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-tool-purchase-date">Data de Aquisição:</label>
+                        <input type="date" id="edit-tool-purchase-date" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="edit-tool-description">Descrição:</label>
+                    <textarea id="edit-tool-description" rows="3"></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('edit-tool-modal')">Cancelar</button>
+                    <button type="submit" class="btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div id="search-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Busca Avançada</h3>
+                <span class="close" onclick="closeModal('search-modal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="search-form">
+                    <div class="form-group">
+                        <label for="search-term">Termo de Busca:</label>
+                        <input type="text" id="search-term" placeholder="Digite o nome, código ou descrição...">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="search-category">Categoria:</label>
+                            <select id="search-category">
+                                <option value="">Todas as categorias</option>
+                                <option value="eletrica">Elétrica</option>
+                                <option value="manual">Manual</option>
+                                <option value="hidraulica">Hidráulica</option>
+                                <option value="pneumatica">Pneumática</option>
+                                <option value="audio">Áudio</option>
+                                <option value="video">Vídeo</option>
+                                <option value="iluminacao">Iluminação</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="search-status">Status:</label>
+                            <select id="search-status">
+                                <option value="">Todos os status</option>
+                                <option value="disponivel">Disponível</option>
+                                <option value="em-uso">Em Uso</option>
+                                <option value="manutencao">Em Manutenção</option>
+                                <option value="inativo">Inativo</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="search-location">Localização:</label>
+                            <input type="text" id="search-location" placeholder="Digite a localização...">
+                        </div>
+                        <div class="form-group">
+                            <label for="search-date">Data de Aquisição:</label>
+                            <input type="date" id="search-date">
+                        </div>
+                    </div>
+                </div>
+                <div id="search-results" class="search-results">
+                    <!-- Resultados da busca serão exibidos aqui -->
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" onclick="closeModal('search-modal')">Fechar</button>
+                <button type="button" class="btn-primary" onclick="performAdvancedSearch()">Buscar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Maintenance Modal -->
+    <div id="maintenance-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Agendar Manutenção</h3>
+                <span class="close" onclick="closeModal('maintenance-modal')">&times;</span>
+            </div>
+            <form id="maintenance-form" class="modal-form">
+                <div class="form-group">
+                    <label for="maintenance-tool">Ferramenta:</label>
+                    <select id="maintenance-tool" required>
+                        <option value="">Selecione uma ferramenta...</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="maintenance-type">Tipo de Manutenção:</label>
+                        <select id="maintenance-type" required>
+                            <option value="">Selecione...</option>
+                            <option value="preventiva">Preventiva</option>
+                            <option value="corretiva">Corretiva</option>
+                            <option value="calibracao">Calibração</option>
+                            <option value="limpeza">Limpeza</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="maintenance-priority">Prioridade:</label>
+                        <select id="maintenance-priority" required>
+                            <option value="">Selecione...</option>
+                            <option value="baixa">Baixa</option>
+                            <option value="media">Média</option>
+                            <option value="alta">Alta</option>
+                            <option value="urgente">Urgente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="maintenance-date">Data Agendada:</label>
+                        <input type="date" id="maintenance-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="maintenance-time">Horário:</label>
+                        <input type="time" id="maintenance-time" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="maintenance-description">Descrição:</label>
+                    <textarea id="maintenance-description" rows="3" placeholder="Descreva o que será feito na manutenção..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="maintenance-technician">Técnico Responsável:</label>
+                    <input type="text" id="maintenance-technician" placeholder="Nome do técnico...">
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('maintenance-modal')">Cancelar</button>
+                    <button type="submit" class="btn-primary">Agendar Manutenção</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Confirmar Ação</h3>
+                <span class="close" onclick="closeModal('confirmation-modal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p id="confirmation-message">Tem certeza que deseja realizar esta ação?</p>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" onclick="closeModal('confirmation-modal')">Cancelar</button>
+                <button type="button" class="btn-danger" id="confirm-action">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Import Report Modal -->
+    <div id="import-report-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Resultado da Importação</h3>
+                <span class="close" onclick="closeModal('import-report-modal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="import-report-summary"></div>
+                <div id="import-report-errors" class="tools-table-container" style="margin-top:16px; display:none;">
+                    <table class="tools-table">
+                        <thead>
+                            <tr>
+                                <th>Linha</th>
+                                <th>Código</th>
+                                <th>Erro</th>
+                            </tr>
+                        </thead>
+                        <tbody id="import-report-errors-body"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" onclick="closeModal('import-report-modal')">Fechar</button>
+                <button type="button" class="btn-primary" id="btn-download-import-errors" style="display:none;" onclick="downloadImportErrorsCSV()">Baixar Erros (.csv)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tool Request Modal -->
+    <div id="tool-request-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-tools"></i> Solicitação de Ferramenta</h3>
+                <span class="close" onclick="closeModal('tool-request-modal')">&times;</span>
+            </div>
+            <form id="tool-request-form" class="modal-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="request-requester">Solicitante:</label>
+                        <input type="text" id="request-requester" required placeholder="Nome completo do solicitante">
+                    </div>
+                    <div class="form-group">
+                        <label for="request-ministry">Ministério:</label>
+                        <select id="request-ministry" required>
+                            <option value="">Selecione o ministério...</option>
+                            <option value="musica">Ministério de Música</option>
+                            <option value="tecnologia">Ministério de Tecnologia</option>
+                            <option value="infantil">Ministério Infantil</option>
+                            <option value="jovens">Ministério de Jovens</option>
+                            <option value="manutencao">Manutenção</option>
+                            <option value="limpeza">Limpeza</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="request-tool-name">Nome da Ferramenta:</label>
+                        <input type="text" id="request-tool-name" required placeholder="Nome da ferramenta desejada">
+                    </div>
+                    <div class="form-group">
+                        <label for="request-category">Categoria:</label>
+                        <select id="request-category" required>
+                            <option value="">Selecione a categoria...</option>
+                            <option value="eletrica">Elétrica</option>
+                            <option value="manual">Manual</option>
+                            <option value="hidraulica">Hidráulica</option>
+                            <option value="pneumatica">Pneumática</option>
+                            <option value="audio">Áudio</option>
+                            <option value="video">Vídeo</option>
+                            <option value="iluminacao">Iluminação</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="request-priority">Prioridade:</label>
+                        <select id="request-priority" required>
+                            <option value="">Selecione a prioridade...</option>
+                            <option value="baixa">Baixa</option>
+                            <option value="media">Média</option>
+                            <option value="alta">Alta</option>
+                            <option value="urgente">Urgente</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="request-need-date">Data Necessária:</label>
+                        <input type="date" id="request-need-date" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="request-phone">Telefone para Contato:</label>
+                        <input type="tel" id="request-phone" placeholder="(11) 99999-9999">
+                    </div>
+                    <div class="form-group">
+                        <label for="request-email">E-mail:</label>
+                        <input type="email" id="request-email" placeholder="seu@email.com">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="request-reason">Motivo da Solicitação:</label>
+                    <textarea id="request-reason" rows="3" required placeholder="Descreva o motivo da solicitação e como a ferramenta será utilizada..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="request-observations">Observações Adicionais:</label>
+                    <textarea id="request-observations" rows="2" placeholder="Informações adicionais que possam ser úteis..."></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal('tool-request-modal')">Cancelar</button>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-paper-plane"></i> Enviar Solicitação
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Inspirational Messages -->
+    <div id="inspirational-messages" class="inspirational-messages">
+        <!-- Mensagens inspiradoras serão exibidas aqui -->
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    
+    <script src="config.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="storage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
